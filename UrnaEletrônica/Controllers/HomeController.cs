@@ -23,7 +23,11 @@ namespace UrnaEletrônica.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Crud()
+        {
+            return View();
+        }
+        public IActionResult Dashboard()
         {
             return View();
         }

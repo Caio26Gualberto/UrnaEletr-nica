@@ -8,7 +8,7 @@ namespace UrnaEletrônica.Models
     {
         public HubCountContext(DbContextOptions<HubCountContext> options) : base(options)
         {
-
+            
         }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Vote> Votes { get; set; }

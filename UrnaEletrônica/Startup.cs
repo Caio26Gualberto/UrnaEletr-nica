@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UrnaEletrônica.Models;
+using UrnaEletrônica.Services;
 
 namespace UrnaEletrônica
 {
@@ -27,7 +28,10 @@ namespace UrnaEletrônica
         {
             services.AddControllersWithViews();
             services.AddDbContext<HubCountContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddTransient<CandidateService>();
+            services.AddTransient<VoteService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

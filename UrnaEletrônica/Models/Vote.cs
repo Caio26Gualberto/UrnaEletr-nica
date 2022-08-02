@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace UrnaEletrônica.Models
 {
@@ -9,6 +10,7 @@ namespace UrnaEletrônica.Models
         public DateTime Data { get; set; }
 
         public int CandidateId { get; set; }
-        public Candidate Candidate { get; set; }
+        [JsonIgnore]
+        public virtual Candidate Candidate { get; set; }
     }
 }
