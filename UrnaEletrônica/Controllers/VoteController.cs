@@ -18,10 +18,19 @@ namespace UrnaEletrônica.Controllers
         [HttpPost("vote")]
         public IActionResult InsertVote(InsertVoteDto insertVote)
         {
-            Vote vote1 = new Vote();
-            vote1.CandidateId = insertVote.CandidateId;
-            VoteService.InsertVote(vote1);
-            return Ok();
+            try
+            {
+                Vote vote1 = new Vote();
+                vote1.CandidateId = insertVote.CandidateId;
+                VoteService.InsertVote(vote1);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+                
+            }
+            
         }
         [HttpGet("votes")]
         public IActionResult GetVotes()

@@ -27,6 +27,10 @@ namespace UrnaEletrônica.Controllers
         {
             return View();
         }
+        public IActionResult AlterarPresidente()
+        {
+            return View();
+        }
         public IActionResult Dashboard()
         {
             return View();

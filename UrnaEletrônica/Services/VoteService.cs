@@ -11,7 +11,13 @@ namespace UrnaEletrônica.Services
     {
         public void InsertVote(Vote vote)
         {
+           var candidate = HubCountContext.Candidates.FirstOrDefault(candidate => candidate.Subject == vote.CandidateId);
+            if (candidate == null)
+            {
+                throw new Exception("Candidato informado não existe");
+            }
             vote.Data = DateTime.Now;
+            vote.CandidateId = candidate.CandidateId;
             HubCountContext.Votes.Add(vote);
             HubCountContext.SaveChanges();
             
@@ -31,7 +37,7 @@ namespace UrnaEletrônica.Services
                 dto.TotalVotes = vote.Votes.Count();
                 lista.Add(dto);
             }
-            return lista;
+            return lista.OrderByDescending(o => o.TotalVotes).ToList();
         }
         public VoteService(HubCountContext context)
         {

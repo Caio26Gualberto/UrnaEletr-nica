@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace UrnaEletrônica.Dto
 {
@@ -8,5 +9,7 @@ namespace UrnaEletrônica.Dto
         public string Name { get; set; }
         [Required]
         public string ViceName { get; set; }
+        [Required]
+        public Int32 Subject { get; set; }
     }
 }
