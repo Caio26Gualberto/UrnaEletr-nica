@@ -29,6 +29,24 @@ namespace UrnaEletrônica.Services
 
 
         }
+        public void DeleteVotes (int subject)
+        {
+            if (subject != 0)
+            {
+                var candidate = HubCountContext.Candidates.FirstOrDefault(candidate => candidate.Subject == subject);
+                if (candidate == null)
+                {
+                    throw new Exception("Candidato informado não existe");
+                }
+               var votesCandidate = HubCountContext.Votes.Where(vote => vote.CandidateId == candidate.CandidateId);
+                foreach (var vote in votesCandidate)
+                {
+                    HubCountContext.Votes.Remove(vote);
+                }
+                HubCountContext.SaveChanges();
+            }
+        }
+
         public List<GetVotesByCandidateDto> GetVotes()
         {
             var votes = HubCountContext.Candidates.Include(candidate => candidate.Votes).ToList();
