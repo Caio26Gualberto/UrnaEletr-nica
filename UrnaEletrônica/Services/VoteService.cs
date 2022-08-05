@@ -9,15 +9,20 @@ namespace UrnaEletrônica.Services
 {
     public class VoteService
     {
-        public void InsertVote(Vote vote)
+        public void InsertVote(int subject)
         {
-           var candidate = HubCountContext.Candidates.FirstOrDefault(candidate => candidate.Subject == vote.CandidateId);
-            if (candidate == null)
+            Vote vote = new Vote();
+            if (subject != 0)
             {
-                throw new Exception("Candidato informado não existe");
+                var candidate = HubCountContext.Candidates.FirstOrDefault(candidate => candidate.Subject == subject);
+                if (candidate == null)
+                {
+                    throw new Exception("Candidato informado não existe");
+                }
+                vote.CandidateId = candidate.CandidateId;
             }
+            
             vote.Data = DateTime.Now;
-            vote.CandidateId = candidate.CandidateId;
             HubCountContext.Votes.Add(vote);
             HubCountContext.SaveChanges();
             

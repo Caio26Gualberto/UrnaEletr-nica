@@ -17,9 +17,9 @@ namespace UrnaEletrônica.Services
             HubCountContext = context;
         }
         private HubCountContext HubCountContext { get; set; }
-        public void DeleteCandidate(int id)
+        public void DeleteCandidate(int subject)
         {
-            var candidateDelete = HubCountContext.Candidates.FirstOrDefault(item => item.CandidateId == id);
+            var candidateDelete = HubCountContext.Candidates.FirstOrDefault(item => item.Subject == subject );
             HubCountContext.Candidates.Remove(candidateDelete);
             HubCountContext.SaveChanges();
         }

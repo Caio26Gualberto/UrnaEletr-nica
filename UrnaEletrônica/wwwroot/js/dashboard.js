@@ -3,14 +3,12 @@
     method: "GET",
     contentType: "application/json; charset=UTF-8",
     success: function (result) {
-        alert('Successfully received Data ');
-        
-        document.getElementsByClassName("lideranca").innerHTML = result[0].name
-    },
-    error: function (xhr, status, error) {
-        alert(xhr.responseText);
-        document.getElementById("resultado1").value = ''
-        document.getElementById("resultado2").value = ''
+        if (result) {
+            result.forEach(item => {
+                $("#lista").append(`<li><span class="lideranca">${item.name}</span><small class="votos">${item.totalVotes}</small></li>`)
+            }) 
+        }
+       
     }
 })
 

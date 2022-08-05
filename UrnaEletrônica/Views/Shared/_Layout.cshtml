@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - UrnaEletrônica</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/site.css" />
     @RenderSection("startCss", false)
 </head>
@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="@Url.Action("Index")">Votação <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="@Url.Action("Crud")" >Crud</a>
+                    <a class="nav-item nav-link" href="@Url.Action("Crud")">Crud</a>
                     <a class="nav-item nav-link" href="@Url.Action("Dashboard")">Dashboard</a>
                 </div>
             </div>
@@ -34,9 +34,12 @@
             &copy; 2022 - UrnaEletrônica - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="~/js/site.js"></script>
+
+@RenderSection("Scripts", required: false)
+

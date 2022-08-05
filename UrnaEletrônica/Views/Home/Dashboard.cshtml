@@ -1,46 +1,24 @@
 ﻿@section startCss{
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/dashboard.css" />
 }
 
-
-
-
-    <!-- 	<div class="blog">Visit <a href="#" target="_blank">My Blog</a></div> -->
-    
-        <div class="leaderboard">
-            <div class="head">
-                <i class="fas fa-crown"></i>
-                <h1>Most active Players</h1>
-            </div>
-            <div class="body">
-                <ol>
-                    <li>
-                        <span class="lideranca"></span>
-                        <small>948</small>
-                    </li>
-                    <li>
-                        <mark class="lideranca">Brandon Barnes</mark>
-                        <small>750</small>
-                    </li>
-                    <li>
-                        <mark class="lideranca">Raymond Knight</mark>
-                        <small>684</small>
-                    </li>
-                    <li>
-                        <mark class="lideranca">Trevor McCormick</mark>
-                        <small>335</small>
-                    </li>
-                    <li>
-                        <mark class="lideranca">Andrew Fox</mark>
-                        <small>296</small>
-                    </li>
-                </ol>
-            </div>
+    <div class="leaderboard">
+        <div class="head">
+            <i class="fas fa-crown"></i>
+            <h1>Corrida Presidencial</h1>
         </div>
-   
-
-
-
+        <div class="body">
+            <ol id="lista">
+          
+            </ol>
+        </div>
+    </div>
     @section scripts{
     <script type="text/javascript" src="~/js/dashboard.js"></script>
 }

@@ -20,9 +20,7 @@ namespace UrnaEletrônica.Controllers
         {
             try
             {
-                Vote vote1 = new Vote();
-                vote1.CandidateId = insertVote.CandidateId;
-                VoteService.InsertVote(vote1);
+                VoteService.InsertVote(insertVote.Subject);
                 return Ok();
             }
             catch (System.Exception ex)

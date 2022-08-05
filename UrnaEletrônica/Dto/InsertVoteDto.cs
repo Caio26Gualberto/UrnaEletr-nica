@@ -5,6 +5,6 @@ namespace UrnaEletrônica.Dto
     public class InsertVoteDto
     {
         [Required]
-        public int CandidateId { get; set; }
+        public int Subject { get; set; }
     }
 }

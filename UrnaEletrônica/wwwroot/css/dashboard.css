@@ -20,6 +20,10 @@ a {
     text-decoration: none;
 }
 
+.votos {
+    margin-left: 490px;
+}
+
 .blog {
     font-size: 14px;
     font-weight: bold;
@@ -109,3 +113,5 @@ a {
         .leaderboard li:nth-child(5) {
             background: #c24448;
         }
+
+        

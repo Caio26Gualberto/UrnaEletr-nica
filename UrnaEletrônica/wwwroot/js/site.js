@@ -14,26 +14,25 @@ function numero(valor) {
         } else {
             document.getElementById("resultado2").value = valor
             var resultado = parseInt(document.getElementById("resultado1").value + document.getElementById("resultado2").value)
-            var url = "https://localhost:44368/api/candidate/candidate/ " + resultado
-            $.ajax({
-                url: url,
-                method: "GET",
-                data: JSON.stringify({
-                    CandidateId: resultado
-                }),
-                contentType: "application/json; charset=UTF-8",
-                success: function (result) {
-                    document.getElementById("presidente").innerHTML = result.name
-                    document.getElementById("vice").innerHTML = result.viceName
-                },
-                error: function (xhr, status, error) {
-                    alert("Não foi possível encontrar o candidato");
-                    document.getElementById("resultado1").value = ''
-                    document.getElementById("resultado2").value = ''
-                    document.getElementById("presidente").innerHTML = ''
-                    document.getElementById("vice").innerHTML = ''
-                }
-            })
+            if (resultado !== 0) {
+                var url = "https://localhost:44368/api/candidate/candidate/ " + resultado
+                $.ajax({
+                    url: url,
+                    method: "GET",
+                    contentType: "application/json; charset=UTF-8",
+                    success: function (result) {
+                        document.getElementById("presidente").innerHTML = result.name
+                        document.getElementById("vice").innerHTML = result.viceName
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Não foi possível encontrar o candidato");
+                        document.getElementById("resultado1").value = ''
+                        document.getElementById("resultado2").value = ''
+                        document.getElementById("presidente").innerHTML = ''
+                        document.getElementById("vice").innerHTML = ''
+                    }
+                })
+            }
         }
     }
 
@@ -45,12 +44,13 @@ function confirmar() {
         url: "https://localhost:44368/api/vote/vote",
         method: "POST",
         data: JSON.stringify({
-            CandidateId: resultado
+            Subject: resultado
         }),
         contentType: "application/json; charset=UTF-8",
         success: function (result) {
-            alert('Successfully received Data ');
-            console.log(result);
+            alert('Voto realizado com sucesso');
+            document.getElementById("resultado1").value = ''
+            document.getElementById("resultado2").value = ''
         },
         error: function (xhr, status, error) {
             alert(xhr.responseText);

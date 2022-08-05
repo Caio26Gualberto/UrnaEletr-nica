@@ -27,10 +27,10 @@ namespace UrnaEletrônica.Controllers
 
             return Ok();
         }
-        [HttpDelete("candidate/{id}")]
-        public IActionResult DeleteCandidate(int id)
+        [HttpDelete("candidate/{subject}")]
+        public IActionResult DeleteCandidate(int subject)
         {
-            candidateServices.DeleteCandidate(id);
+            candidateServices.DeleteCandidate(subject);
             return Ok();
         }
 

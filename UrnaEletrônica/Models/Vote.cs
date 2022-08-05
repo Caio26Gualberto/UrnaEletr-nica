@@ -9,7 +9,7 @@ namespace UrnaEletrônica.Models
 
         public DateTime Data { get; set; }
 
-        public int CandidateId { get; set; }
+        public int? CandidateId { get; set; }
         [JsonIgnore]
         public virtual Candidate Candidate { get; set; }
     }
